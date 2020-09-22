@@ -1,0 +1,4 @@
+metodo para encapsular la clave de apachetomcat en windows
+SHA 256 
+
+D:\Programs\apache-tomcat-xxx\apache-tomcat-xxxx\bin>digest.bat -s 0 -a SHA-256  mysecret_password 
