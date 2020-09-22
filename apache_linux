@@ -1,0 +1,41 @@
+[Unit] 
+
+Description=Apache Tomcat 9 
+
+After=syslog.target network.target 
+
+ 
+
+[Service] 
+
+User=xxxxx 
+
+Group=xxxxx
+
+Type=forking 
+
+ 
+
+Environment=CATALINA_PID=/var/Apache_Software_Foundation/apache-tomcat-9.0.5_wsdl/aptwsdl.pid 
+
+Environment=CATALINA_HOME=/var/Apache_Software_Foundation/apache-tomcat-9.0.5_wsdl 
+
+Environment=CATALINA_BASE=/var/Apache_Software_Foundation/apache-tomcat-9.0.5_wsdl 
+
+Environment='CATALINA_OPTS=-Xms512M -Xmx2048M -server -XX:+UseParallelGC' 
+
+ExecStart=/bin/bash /var/Apache_Software_Foundation/apache-tomcat-9.0.5_wsdl/bin/startup.sh 
+
+ExecStop=/bin/bash /var/Apache_Software_Foundation/apache-tomcat-9.0.5_wsdl/bin/shutdown.sh 
+
+#Restart=on-failure 
+
+RestartSec=10 
+
+Restart=always 
+
+ 
+
+[Install] 
+
+WantedBy=multi-user.target 
